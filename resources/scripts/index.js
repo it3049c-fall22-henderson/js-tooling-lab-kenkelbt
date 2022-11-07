@@ -1,4 +1,3 @@
-import { RockPaperScissors } from './rock_paper_scissors.js';
 // Elements
 const welcomeScreen = document.getElementById(`welcome-screen`);
 const gameScreen = document.getElementById(`game-screen`);
@@ -11,8 +10,8 @@ const gameHistoryParagraph = document.getElementById(`game-history`);
 const resetGameButton = document.getElementById(`reset-game-button`);
 
 // instantiate the game object from the `RockPaperScissors` class.
-let game;
-let username;
+var game;
+var username;
 
 // hide gamescreen
 gameScreen.classList.add(`d-none`);
@@ -25,29 +24,27 @@ function updateScoreTallyUI(){
 
 // updateGameHistoryUI
 function updateGameHistoryUI(){
-  gameHistoryParagraph.innerHTML = ``; 
-  gameHistoryParagraph.innerHTML = game.gameHistoryLog; 
+      gameHistoryParagraph.innerHTML = ''; 
+    gameHistoryParagraph.innerHTML = game.gameHistoryLog; 
 }
 
 // start-game-button EventListener
 startGameButton.addEventListener(`click`, function (e) {
   e.preventDefault(); 
-  username = userName.value;
-  // eslint-disable-next-line no-undef
+     username = userName.value;
   game = new RockPaperScissors(username);
 
   welcomeScreen.classList.add(`d-none`);
   gameScreen.classList.remove(`d-none`);
-  resetGameButton.classList.remove(`d-none`);
+     resetGameButton.classList.remove(`d-none`);
   updateScoreTallyUI();
-  updateGameHistoryUI();
+     updateGameHistoryUI();
   // Complete
 });
 
 // go-button EventListener
 goButton.addEventListener(`click`, function (e) {
   e.preventDefault(); 
-  // eslint-disable-next-line no-unused-vars
   const selectedOption = userSelection.options[userSelection.selectedIndex].value;
   game.play(userSelection.value); 
   updateScoreTallyUI(); 
@@ -56,14 +53,13 @@ goButton.addEventListener(`click`, function (e) {
 });
 
 //reset-game-button
-resetGameButton.addEventListener(`click`, function(e) { 
-  e.preventDefault();
-  userName.value = ``;
-  username = ``;
-  // eslint-disable-next-line no-undef
+resetGameButton.addEventListener('click', function(e) { 
+     e.preventDefault();
+  userName.value = '';
+     username = '';
   game = new RockPaperScissors(username);
-
+  import { RockPaperScissors } from './rock_paper_scissors.js';
   welcomeScreen.classList.remove(`d-none`);
-  gameScreen.classList.add(`d-none`);
+     gameScreen.classList.add(`d-none`);
   resetGameButton.classList.add(`d-none`);
 })

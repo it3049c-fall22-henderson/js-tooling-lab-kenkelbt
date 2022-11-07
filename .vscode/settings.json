@@ -6,3 +6,8 @@
     "**/docs": true
   }
 }
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  }
+}
